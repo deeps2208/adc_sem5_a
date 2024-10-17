@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbiting Stars at Angles</title>
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+        }
+
+        .hover-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2; /* Keep the image above */
+        }
+
+        .orbit-star {
+            position: absolute;
+            width: 30px; /* Adjust the star/flower size */
+            height: 30px;
+            background-image: url('flower.svg'); /* Path to flower image */
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbit 4s infinite linear;
+        }
+
+        /* Star 1 (45-degree orbit) */
+        .star1 {
+            animation: orbit1 4s infinite linear;
+        }
+
+        /* Star 2 (135-degree orbit) */
+        .star2 {
+            animation: orbit2 4s infinite linear;
+        }
+
+        /* Orbit path for star 1 at 45 degrees */
+        @keyframes orbit1 {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg);
+            }
+            50% {
+                z-index: 1; /* Go behind the image */
+                transform: translate(-50%, -50%) rotate(180deg) translateX(100px) rotate(-180deg);
+            }
+            100% {
+                z-index: 3; /* Come in front of the image */
+                transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg);
+            }
+        }
+
+        /* Orbit path for star 2 at 135 degrees */
+        @keyframes orbit2 {
+            0% {
+                transform: translate(-50%, -50%) rotate(45deg) translateX(100px) rotate(0deg);
+            }
+            50% {
+                z-index: 1; /* Go behind the image */
+                transform: translate(-50%, -50%) rotate(225deg) translateX(100px) rotate(-180deg);
+            }
+            100% {
+                z-index: 3; /* Come in front of the image */
+                transform: translate(-50%, -50%) rotate(405deg) translateX(100px) rotate(-360deg);
+            }
+        }
+
+        /* Optional: Trajectory path (for visual aid) */
+        .orbit-path {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: 0;
+            border: 2px dashed rgba(255, 255, 255, 0.5); /* Dashed circle for trajectory */
+            border-radius: 50%;
+            transform: rotate(45deg); /* Align path to match star1 angle */
+        }
+    </style>
+</head>
+<body>
+
+<div class="image-container">
+    <img src="mainhomegirl.png" class="hover-image" alt="Main Image" />
+    
+    <!-- Optional trajectory path -->
+    <div class="orbit-path"></div>
+    
+    <!-- Orbiting stars -->
+    <div class="orbit-star star1"></div>
+    <div class="orbit-star star2"></div>
+</div>
+
+</body>
+</html>

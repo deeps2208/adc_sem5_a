@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Comparisons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        .feature-section {
+            margin-bottom: 40px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin: 0px 20px; /* Added margin for spacing between images */
+        }
+
+        .slider-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+
+        .slider-img.second {
+            clip-path: inset(0 50% 0 0); /* Start halfway */
+        }
+
+        .custom-slider-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            transform: translate(-50%, -50%);
+            background-color: #ffd700;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .slider-track {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%; /* Initial left position */
+            width: 4px; /* Adjust this value for thickness */
+            background-color: #ffd700; /* Change this to your preferred color */
+            z-index: 90;
+            transform: translateX(-50%);
+        }
+
+        .slider-text {
+            text-align: center;
+            font-size: 18px;
+            color: #ffd700;
+            margin-top: 10px;
+        }
+
+        .blurred {
+            filter: blur(5px);
+        }
+
+        .text-box {
+            position: absolute;
+            background-color: #000000; /* Box color */
+            color: #ecd551; /* Text color */
+            padding: 10px;
+            border-radius: 10px; /* Rounded edges */
+            display: none; /* Hidden by default */
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); /* Blurred border effect */
+        }
+
+        .text-box.before {
+            top: 10px;
+            right: 10px; /* Changed to right */
+        }
+
+        .text-box.after {
+            top: 10px;
+            left: 10px; /* Changed to left */
+        }
+
+        /* Custom media query for smaller screens */
+        @media (max-width: 768px) {
+            .slider-container {
+                height: 300px;
+            }
+
+            .slider-text {
+                font-size: 14px;
+            }
+        }
+
+        .gobackboi {
+            position: relative;
+            left: 700px;
+            top: 200px;
+            width: 118px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gobackboi:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        .empty-space {
+            height: 800px;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- First Feature Section -->
+    <div class="feature-section">
+        <div class="slider-container">
+            <img src="LANG1.png" alt="After" class="slider-img first" id="first-image1">
+            <img src="LANG2.png" alt="Before" class="slider-img second" id="slider-image1">
+            <div class="custom-slider-pin" id="slider-pin1"></div>
+            <div class="slider-track"></div>
+            <div class="text-box before" id="before-text1">After</div> <!-- Changed to After -->
+            <div class="text-box after" id="after-text1">Before</div> <!-- Changed to Before -->
+        </div>
+        <div class="slider-text">Simplifying the game page to show only the important elements</div>
+    </div>
+
+    <!-- Second Feature Section -->
+    <div class="feature-section">
+        <div class="slider-container">
+            <img src="after 2.png" alt="After" class="slider-img first" id="first-image2">
+            <img src="before 2.png" alt="Before" class="slider-img second" id="slider-image2">
+            <div class="custom-slider-pin" id="slider-pin2"></div>
+            <div class="slider-track"></div>
+            <div class="text-box before" id="before-text2">After</div> <!-- Changed to After -->
+            <div class="text-box after" id="after-text2">Before</div> <!-- Changed to Before -->
+        </div>
+        <div class="slider-text">Simplifying the downloading page to make it more adaptable for more downloads and ways to know how the progress of the download is going based of user mental model.</div>
+    </div>
+
+    <!-- Third Feature Section -->
+    <div class="feature-section">
+        <div class="slider-container">
+            <img src="after 3.png" alt="After" class="slider-img first" id="first-image3">
+            <img src="before 3.png" alt="Before" class="slider-img second" id="slider-image3">
+            <div class="custom-slider-pin" id="slider-pin3"></div>
+            <div class="slider-track"></div>
+            <div class="text-box before" id="before-text3">After</div> <!-- Changed to After -->
+            <div class="text-box after" id="after-text3">Before</div> <!-- Changed to Before -->
+        </div>
+        <div class="slider-text">Cleaning up the game library to make it more easy to use and having bigger icons to help newer users.</div>
+    </div>
+</div>
+
+
+<a href="steam.html">
+    <img src="yellow arrow.png" class="gobackboi" alt="Click to go to another page">
+</a>
+
+<div class="empty-space"></div>
+
+
+
+<script>
+    
+    function setupSlider(sliderPinId, sliderImageId, firstImageId, beforeTextId, afterTextId) {
+        const sliderPin = document.getElementById(sliderPinId);
+        const sliderImage = document.getElementById(sliderImageId);
+        const firstImage = document.getElementById(firstImageId);
+        const sliderContainer = sliderPin.parentElement;
+        const sliderTrack = sliderContainer.querySelector('.slider-track'); // Get the slider track
+        const beforeText = document.getElementById(beforeTextId);
+        const afterText = document.getElementById(afterTextId);
+        let isDragging = false;
+
+        sliderPin.addEventListener('mousedown', () => {
+            isDragging = true;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            const containerRect = sliderContainer.getBoundingClientRect();
+            let offsetX = e.clientX - containerRect.left;
+
+            if (offsetX < 0) offsetX = 0;
+            if (offsetX > containerRect.width) offsetX = containerRect.width;
+
+            const percentage = (offsetX / containerRect.width) * 100;
+            sliderPin.style.left = `${percentage}%`;
+            sliderImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+
+            // Move the slider track to match the slider pin
+            sliderTrack.style.left = `${percentage}%`; // Update the track position
+
+            // Blur logic based on percentage
+            if (percentage > 60) {
+                firstImage.classList.add('blurred');
+                sliderImage.classList.remove('blurred');
+                afterText.style.display = 'block'; // Show After text
+                beforeText.style.display = 'none'; // Hide Before text
+            } else if (percentage < 40) {
+                sliderImage.classList.add('blurred');
+                firstImage.classList.remove('blurred');
+                beforeText.style.display = 'block'; // Show Before text
+                afterText.style.display = 'none'; // Hide After text
+            } else {
+                firstImage.classList.remove('blurred');
+                sliderImage.classList.remove('blurred');
+                beforeText.style.display = 'none'; // Hide Before text
+                afterText.style.display = 'none'; // Hide After text
+            }
+        });
+    }
+    
+
+    // Initialize sliders with IDs for both images and text boxes
+    setupSlider('slider-pin1', 'slider-image1', 'first-image1', 'before-text1', 'after-text1');
+    setupSlider('slider-pin2', 'slider-image2', 'first-image2', 'before-text2', 'after-text2');
+    setupSlider('slider-pin3', 'slider-image3', 'first-image3', 'before-text3', 'after-text3');
+
+</script>
+
+</body>
+</html>
