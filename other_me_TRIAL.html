@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Designer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .toggle-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .toggle-text {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- About Me Version 1 - Designer -->
+    <section class="about-section">
+        <h1>About Me - Designer</h1>
+        <p>This is the designer side of me.</p>
+    </section>
+
+    <!-- Toggle switch -->
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" id="about-toggle">
+            <span class="slider"></span>
+        </label>
+        <span class="toggle-text">Click to see the developer me!</span>
+    </div>
+
+    <script>
+        // JavaScript to switch between pages
+        const toggleSwitch = document.getElementById('about-toggle');
+
+        // Check if checkbox should be checked (coming from developer page)
+        window.onload = function() {
+            toggleSwitch.checked = false;
+        };
+
+        toggleSwitch.addEventListener('change', function() {
+            if (toggleSwitch.checked) {
+                // Redirect to the other page
+                window.location.href = 'C:\Users\LENOVO\Desktop\HTML\Portfolio\OTHER_ ME_AS_WELL.html';
+            }
+        });
+    </script>
+
+</body>
+</html>

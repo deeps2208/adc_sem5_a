@@ -1,0 +1,229 @@
+.questcontainer {
+    width: 50%; /* Container width */
+    margin-left: 0; /* Align to the left */
+    z-index: 1;
+}
+
+.question {
+    border-top: 2px solid #ff440018; /* Top border */
+    border-bottom: 2px solid transparent; /* Default bottom border for first 5 boxes */
+    cursor: pointer;
+    margin: 0; /* No space between boxes */
+}
+
+.question:last-of-type {
+    border-bottom: 2px solid #ff440018; /* Bottom border for the last box */
+}
+
+.question p {
+    margin: 0;
+    padding: 15px; /* Padding for the question text */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between text and icon */
+    align-items: center; /* Center vertically */
+    font-size: 24px; /* Font size for question */
+    font-family: 'Calistoga', serif; /* Use Calistoga for the question */
+}
+
+.answer-content {
+    
+    
+    color: #FF4500;
+    padding: 10px 15px; /* Padding for the answer */
+    max-height: 0; /* Hidden by default */
+    overflow: hidden; /* Prevent overflow */
+    transition: max-height 0.3s ease; /* Smooth transition */
+}
+
+.question.expanded .answer-content {
+    max-height: 500px; /* Enough height to fully show answer */
+}
+
+.plus {
+    font-size: 32px;
+    transition: transform 0.2s ease; /* Smooth rotation for icon */
+}
+
+.question.expanded .plus {
+    transform: rotate(45deg); /* Rotate plus icon when expanded */
+}
+
+<div class="questcontainer" style="margin-top: 750px; margin-left: 40px;">
+                    <div class="question" onclick="toggleAnswer(this)">
+                        <p class="calistoga-regular" style="font-size: 64px; color: #2D3B66;">
+                            Entertainment
+                            <span class="plus">+</span>
+                        </p>
+                        <div class="answer-content" >
+                            <p class="afacad-light" style="font-size: 24px;">I understand that timely delivery is important, and I will provide a clear timeline for the project that I will do my best to meet. However, please note that unforeseen circumstances such as hard diseases or other difficult situations may impact the timeline.</p>
+                        </div>
+                    </div>
+            
+                    <div class="question" onclick="toggleAnswer(this)">
+                        <p class="calistoga-regular" style="font-size: 64px; color: #2D3B66;">
+                            Travelling
+                            <span class="plus">+</span>
+                        </p>
+                        <div class="answer-content">
+                            <p class="afacad-light" style="font-size: 24px;">I prefer email for formal communication, but I’m also available on messaging apps for quick discussions and updates.</p>
+                        </div>
+                    </div>
+            
+                    <div class="question" onclick="toggleAnswer(this)">
+                        <p class="calistoga-regular" style="font-size: 64px; color: #2D3B66;">
+                            Dance
+                            <span class="plus">+</span>
+                        </p>
+                        <div class="answer-content">
+                            <p>Updates will be provided weekly, and I will ensure that any significant milestones are communicated promptly.</p>
+                        </div>
+                    </div>
+            
+                    <div class="question" onclick="toggleAnswer(this)">
+                        <p class="calistoga-regular" style="font-size: 64px; color: #2D3B66;">
+                            Photography
+                            <span class="plus">+</span>
+                        </p>
+                        <div class="answer-content">
+                            <p>The project will utilize HTML, CSS, and JavaScript for the front-end, along with a back-end framework like Node.js or Python depending on your needs.</p>
+                        </div>
+                    </div>
+            
+                    <div class="question" onclick="toggleAnswer(this)">
+                        <p class="calistoga-regular" style="font-size: 64px; color: #2D3B66;">
+                            Family and Friends
+                            <span class="plus">+</span>
+                        </p>
+                        <div class="answer-content">
+                            <p>If the timeline changes due to unforeseen circumstances, I will inform you as soon as possible and provide a revised timeline.</p>
+                        </div>
+                    </div>
+            
+                    <div class="question" onclick="toggleAnswer(this)">
+                        <p class="calistoga-regular" style="font-size: 64px; color: #2D3B66;">
+                            AND CATS OMG CATS
+                            <span class="plus">+</span>
+                        </p>
+                        <div class="answer-content">
+                            <p>Yes, you can request changes post-completion. Depending on the nature of the changes, they may incur additional costs.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <script>
+                    function toggleAnswer(element) {
+                        const answerContent = element.querySelector(".answer-content");
+                
+                        // Toggle the 'expanded' class to change the height
+                        element.classList.toggle("expanded");
+                        if (element.classList.contains("expanded")) {
+                            // Expand the answer
+                            answerContent.style.maxHeight = answerContent.scrollHeight + "px"; // Set height to content height
+                        } else {
+                            // Collapse the answer
+                            answerContent.style.maxHeight = "0"; // Collapse to zero height
+                        }
+                    }
+                </script>
+
+<script>
+    function toggleAnswer(element) {
+        const answerContent = element.querySelector(".answer-content");
+
+        // Toggle the 'expanded' class to change the height
+        element.classList.toggle("expanded");
+        if (element.classList.contains("expanded")) {
+            // Expand the answer
+            answerContent.style.maxHeight = answerContent.scrollHeight + "px"; // Set height to content height
+        } else {
+            // Collapse the answer
+            answerContent.style.maxHeight = "0"; // Collapse to zero height
+        }
+    }
+</script>
+
+
+
+
+/* Styling for toggle */
+.toggle-container {
+  position: absolute;
+  bottom: 50px;
+  right: 120px;
+  z-index: 1000;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers both the toggle and text */
+}
+
+/* Styling the toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #D9D9D9;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #84B78F;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #D9D9D9;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: #E5887A;
+}
+
+.toggle-text {
+  margin-top: 10px; /* Add space between the toggle and text */
+  text-align: center;
+  font-family: 'Afacad', sans-serif;
+  font-size: 18px; /* Adjust font size as per need */
+  color: #333; /* Set the text color */
+}
+
+/* Hide the default link */
+.toggle-link {
+  display: none; /* Hide the link */
+}
+
+/* Show link when the checkbox is checked */
+input:checked ~ .toggle-link {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #2196F3; /* Link color */
+  font-size: 18px; /* Font size for link */
+}
