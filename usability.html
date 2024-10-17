@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <style>
+
+html, body {
+    overflow-x: hidden;
+}
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .afacad-light {
+                font-family: "Afacad", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                }
+                .afacad-bold {
+                font-family: "Afacad", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 700;
+                }
+        body {
+                    background-color: rgb(255, 251, 244);
+                    cursor: none;
+                    margin-top: 20px;
+                }
+        .calistoga-regular {
+                font-family: "Calistoga", serif;
+                font-weight: 400;
+                font-style: normal;
+                }
+
+                html {
+        scroll-behavior: smooth;
+    }
+        header {
+            background-color: rgb(255, 251, 244);
+            padding: 10px 20px;
+            position: fixed; /* Make the navbar stay on top */
+            top: 0;
+            width:100%;
+            z-index: 1000; 
+            
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px; /* Adjust logo size */
+            height: auto;
+            padding-top: 10px;
+            margin-left: 40px;
+        }
+
+        .nav-links {
+            
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            
+        }
+
+        .nav-links a {
+            color: #2D3B66;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: #E5887A;
+            font-weight: 700;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 4px;
+            background-color: #2D3B66;
+            border-radius: 5px;
+            margin: 3px;
+            transition: all 0.15s ease;
+            
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: -80px;
+                top: 70px;
+                height: 90vh;
+                width: 100%;
+                
+                background-color: rgb(255,252,244);
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .hamburger {
+                display: flex;
+                margin-right: 30px;
+            }
+
+            .nav-active {
+                transform: translateX(0);
+            }
+        }
+
+         /* Responsive Image Overlap Container */
+        .image-container {
+            width: 100%;
+            margin: 50px auto;
+            display: flex;
+        }
+
+        .image-overlap {
+            position: relative; /* Relative positioning to contain absolute images */
+            width: 100%;
+            height: auto;
+        }
+
+        .image-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width, will scale with container */
+            height: auto;
+            z-index: 2; /* This will be above the second image */
+        }
+
+        /* Second Image */
+        .image-2 {
+            position: absolute;
+            top: 20px; /* Adjust the amount of overlap */
+            width: 100%; /* Make the second image a bit smaller */
+            height: 650px;
+            z-index: 1; 
+            
+        }
+        .image-3 {
+            position: absolute;
+            top: 20px; /* Adjust the amount of overlap */
+            width: 100%; /* Make the second image a bit smaller */
+            height: 450px;
+            margin-top: 280px;
+            z-index: 3; 
+            
+        }
+
+        .image-4 {
+            position: absolute;
+            top: 20px; /* Adjust the amount of overlap */
+            width: 100%; /* Make the second image a bit smaller */
+            height: 650px;
+            margin-top: 340px;
+            z-index: 8; 
+            
+        }
+
+        .image-5 {
+            position: absolute;
+            top: 20px; /* Adjust the amount of overlap */
+            width: 100%; /* Make the second image a bit smaller */
+            
+            margin-top: 680px;
+            z-index: 6; 
+            
+        }
+        
+                @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+            /* Image styling */
+            .rotating-image {
+                position: absolute;
+                width: 70px; /* Adjust the size as needed */
+                height: auto;
+                margin-top: 210px;
+                z-index: 9;
+                animation: rotate 5s linear infinite; /* Continuous rotation */
+            }
+
+                 
+
+        .overlay-text {
+            position: absolute;
+            top: 50px;
+            z-index: 4;
+            color: white; /* Text color */
+            text-align: center; /* Center-align the text */
+            width: 100%; /* Adjust width */
+            font-size:  130px;
+
+        }
+
+        .overlay-text p {
+            font-size: 64px;
+            
+        }
+
+    
+        
+
+
+        .footer {
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Calistoga', serif;
+    font-size: 24px;
+    color: #2D3C73; /* Dark blue text */
+}
+
+.footer a {
+    text-decoration: none;
+    color: #2D3C73; /* Dark blue text */
+    font-size: 24px;
+    margin-right: 15px; /* Space between text and icons */
+    font-family: 'Calistoga', serif;
+}
+
+.footer-icons {
+    display: flex;
+    align-items: center;
+}
+
+.footer-icons a {
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.footer-icons img {
+    width: 34px; /* Adjust icon size */
+    height: 34px;
+}
+
+.spacer {
+    height: 590px; /* Adjust the height as needed */
+}
+
+.text-section {
+    max-width: calc(100% - 340px); /* Ensuring 170px margin on both sides */
+    margin: 100px auto;
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.left-fade {
+    transform: translateX(-20%) scale(0.8); /* Move elements slightly off the screen and zoom out */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.text-section.visible {
+    transform: translateX(0) scale(1); /* Bring elements back to their normal position and zoom in */
+    opacity: 1;
+}
+
+
+
+.text-section h2 {
+    font-family: 'Calistoga';
+    color: #2D3B66;
+    margin-bottom: 10px;
+    font-size: 40px; /* Larger heading size */
+}
+
+.text-section p {
+    font-family: 'Afacad';
+    color: #2D3B66;
+    font-size: 24px; /* Larger paragraph size */
+    line-height: 1.6;
+}
+
+.text-section.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.text-row {
+  display: flex;
+  justify-content: space-between; /* Ensures equal spacing between the texts */
+  align-items: center; /* Vertically center the texts */
+  width: 100%; /* Adjust the width as needed */
+}
+
+.text-row span {
+  font-size: 24px; /* Adjust the size as you prefer */
+  margin: 0 10px; /* Optional: Add some margin if needed */
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller desktops */
+@media (max-width: 1024px) {
+    .text-section {
+        max-width: calc(100% - 100px); /* Reduce margins on smaller screens */
+        margin: 80px auto;
+    }
+
+    .text-section h2 {
+        font-size: 32px; /* Adjust heading size */
+    }
+
+    .text-section p {
+        font-size: 20px; /* Adjust paragraph size */
+    }
+
+    .footer {
+        flex-direction: column;
+        font-size: 22px; /* Slightly smaller footer text */
+    }
+
+    .footer-icons img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .text-section {
+        max-width: calc(100% - 50px); /* Further reduce margins */
+        margin: 50px auto;
+    }
+
+    .text-section h2 {
+        font-size: 28px; /* Smaller heading for mobile */
+    }
+
+    .text-section p {
+        font-size: 18px; /* Smaller paragraph size */
+    }
+
+    .footer {
+        flex-direction: column;
+        font-size: 20px; /* Even smaller footer text */
+        padding: 15px 0;
+    }
+
+    .footer a {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    .footer-icons img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+    .text-section {
+        max-width: 100%; /* Remove margins on very small screens */
+        margin: 20px auto;
+    }
+
+    .text-section h2 {
+        font-size: 24px; /* Even smaller heading */
+    }
+
+    .text-section p {
+        font-size: 16px; /* Even smaller paragraph size */
+    }
+
+    .footer {
+        font-size: 18px;
+        padding: 10px 0;
+    }
+
+    .footer a {
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    .footer-icons img {
+        width: 24px;
+        height: 24px;
+    }
+}
+.styled-button {
+                background-color: #D3F2D1; /* Button background */
+                color: #4c4c4c; /* Button text color */
+                padding: 15px 30px;
+                font-size: 24px;
+                border: none;
+                border-radius: 10px;
+                box-shadow: 7px 7px 0px#84B78F; /* Shadow effect */
+                cursor: pointer;
+                justify-content: center;
+                text-align: center;
+                font-family: 'Afacad', sans-serif;
+                width: 370px; /* Fixed width */
+                height: 80px;
+            }
+
+            .styled-button:hover {
+                transform: translateY(-6px); /* Hover effect */
+                transition: transform 0.1s ease-in-out;
+                font-weight: 700;
+                background-color: #D3F2D1;
+                color: #4c4c4c;
+                border-radius: 10px;
+                box-shadow: 7px 7px 0px #84B78F; /* Shadow effect */
+                font-weight: 700;
+
+            }
+            .styled-button {
+                transition: ease-in-out;}
+
+                .button-container {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+
+        .button1 {
+            background-color: #A0AFC5; /* Button background */
+            color: #FFFAF4; /* Button text color */
+            padding-top: 15px;
+            font-size: 24px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 7px 7px 0px #2D3B66; /* Shadow effect */
+            cursor: pointer;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Afacad', sans-serif;
+            width: 60px; /* Fixed width */
+            height: 60px;
+            position: relative; /* Position relative for tooltip */
+            transition: ease-in-out;
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .button1:hover {
+            transform: translateY(-6px); /* Hover effect */
+            transition: transform 0.1s ease-in-out;
+            font-weight: 700;
+            background-color: #A0AFC5;
+            color: #FFFAF4;
+            box-shadow: 7px 7px 0px #2D3B66; /* Shadow effect */
+        }
+
+        .tooltip {
+            font-weight: 400;
+            visibility: hidden; /* Initially hidden */
+            position: absolute;
+            width: 170px;
+            height: 90px;
+            bottom: 70px; /* Position above the button */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2D3B66;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            font-size: 22px;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.2s linear; /* Transition for fade-in */
+        }
+
+        .button1:hover .tooltip {
+            visibility: visible; /* Show tooltip on hover */
+            opacity: 1; /* Fade in effect */
+        }
+
+        .container {
+            width: 1180px;
+            height:535px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        .feature-section {
+            margin-bottom: 40px;
+        }
+
+        .slider-container {
+            position: relative;
+            width:1180px;
+            height: 535px;
+            overflow: hidden;
+            margin: 0px 20px; /* Added margin for spacing between images */
+        }
+
+        .slider-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+
+        .slider-img.second {
+            clip-path: inset(0 50% 0 0); /* Start halfway */
+        }
+
+        .custom-slider-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            transform: translate(-50%, -50%);
+            background-color: #A0AFC5;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .slider-track {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%; /* Initial left position */
+            width: 5px; /* Adjust this value for thickness */
+            background-color: #A0AFC5; /* Change this to your preferred color */
+            z-index: 90;
+            transform: translateX(-50%);
+        }
+
+        .slider-text {
+            text-align: center;
+            font-size: 18px;
+            color: #2D3B66;
+            margin-top: 20px;
+            font-family: 'Afacad';
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .blurred {
+            filter: blur(8px);
+        }
+
+        .text-box {
+            position: absolute;
+            background-color: #FFFAF4; /* Box color */
+            color: #2D3B66; /* Text color */
+            padding: 10px;
+            border-radius: 10px; /* Rounded edges */
+            display: none; /* Hidden by default */
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); /* Blurred border effect */
+        }
+
+        .text-box.before {
+            top: 10px;
+            right: 10px; /* Changed to right */
+            font-family: 'Afacad';
+            font-size: 16px;
+        }
+
+        .text-box.after {
+            top: 10px;
+            left: 10px; /* Changed to left */
+            font-family: 'Afacad';
+            font-size: 16px;
+        }
+
+        /* Custom media query for smaller screens */
+        @media (max-width: 768px) {
+            .slider-container {
+                height: 300px;
+            }
+
+            .slider-text {
+                font-size: 14px;
+            }
+        }
+
+        .gobackboi {
+            position: relative;
+            left: 700px;
+            top: 200px;
+            width: 118px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gobackboi:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        .empty-space {
+            height: 800px;
+        }
+         /* My custom scroll and cursor */
+    .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: #F84C35; /* Circle color */
+            opacity: 80%;
+            border-radius: 50%; /* Make it circular */
+            pointer-events: none; /* Prevent interference with page elements */
+            z-index: 9999;
+            transition: transform 0.1s ease-out; /* Smooth transition */
+            transform: translate(-50%, -50%); /* Center it over the actual cursor */
+        }
+    /* Apply custom styles to the entire webpage scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light gray background */
+    border-radius: 6px; /* Rounded corners for the track */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background: #4b5980; /* Darker gray handle */
+    border-radius: 6px; /* Rounded corners for the handle */
+}
+
+/* Handle hover effect */
+::-webkit-scrollbar-thumb:hover {
+    background: #2D3B66; /* Even darker gray on hover */
+}
+    
+    </style>
+</head>
+<body>  
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <header class="afacad-light" style="color:#2D3B66; font-size: 24px;"> 
+        <nav class="navbar">
+            <a href="index.html">
+            <div class="logo" >
+                <img src="logo.png" width="40px" style="margin-left: 70px;">
+            </div>
+        </a>
+            <ul class="nav-links" style="margin-right: 80px;">
+                <li><a href="index.html">Projects</a></li>
+                <li><a href="about_me_final.html">About me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <section class="image-container">
+        <div class="image-overlap">
+        <img src="Vector93.png" alt="Image 1" class="image-1" style="min-height: 300px; max-height: 400px;">
+        <img src="Rectangle33.png" alt="Image 2" class="image-2" style="min-height: 600px;">
+        <img src="Vector95.png" alt="Image 3" class="image-3" style="max-height: 400px;">
+        <div class="overlay-text" >
+            <div class="calistoga-regular" style="color: #2D3B66; letter-spacing: 5px; -webkit-text-stroke: 43px; -webkit-text-stroke-color: rgb(255, 251, 244); paint-order: stroke fill; margin-left: 10px;">
+                Prime Video:
+                 <br>Usability testing</div>
+        </div>
+        </div>
+        <img src="casestudy.png" alt="Image 4" class="image-4" style="max-height: 450px; width: auto; margin-left: 440px; ">
+        
+        <img src="Vector97.png" alt="Image 5" class="image-5" style="min-height:100px; max-height: 400px;">
+        
+        
+
+    </section>
+</div>
+<div class="spacer"></div>
+<section class="text-section left-fade">
+    <h2>Project overview</h2>
+    <p>The aim of this usability testing is to find and understand common issues with respect to the website interface of “Amazon Prime Video” and to thus enhance the user’s experience.
+       <br> The usability testing has been done for the <b> website version </b>of Prime Video. </p>
+       <p class="text-row" style="margin-top: 30px; font-weight: 700;">
+        <span>UI/UX Design</span>
+        <span>Usability Testing</span>
+        <span>Research</span>
+       </p>  
+       <p class="text-row" style="margin-top: 30px;margin-left:230px; font-weight: 700; width: 65%; ">
+        <span>Duration: 1 month</span>
+        <span>Team type: 4 members</span>
+        
+       </p>  
+    </section>
+
+  <section class="text-section left-fade">
+    <h2>Introduction</h2>
+    <p><b>Scope of testing:</b><br>
+        The aim of this usability testing is to find and understand common issues with respect to the website interface and to thus enhance the user’s experience.</p>
+        <p><b>Objectives:</b></p>
+        <p><ul>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Assessing Navigation</li>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Testing Feature Usability</li>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Gauging Content Discovery</li>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Gathering User Feedback</li>
+        </ul></p>
+    </section>    
+
+    <section class="text-section left-fade">
+        <h2>Methodology</h2>
+        <p>The usability testing was conducted online, through Zoom platform (Zoom ver. 6.0.3(37634)) from 28th April through 1st May.
+            <br><br>
+            <b>Test Design</b><br>
+                The test has been designed while keeping in mind the test objectives, i.e assessing navigation, testing a few features, analyzing how users search for content and getting any sort of feedback the participant is willing to share.
+                <br><br>
+                To execute this, a scenario was given and six tasks were designed pertaining to this scenario that covers all key aspects of the objectives we want to test.<br>
+                Link to User test plan.<br><br>
+
+                After this, participants were selected for the usability test.<br>
+                To these participants, NDA, background, pre-test and post-test questionnaires were sent.
+                <br><br>
+                <b>Participant selection</b><br>
+                Participants- 6<br>Male:Female- 1:3<br>
+                Occupation: School and college students, working professional<br>
+        </p>
+    </section>
+
+        <section class="text-section left-fade">
+            <h2>Findings</h2>
+            <p><ul>
+                <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">The “Genre” tab under categories is not very functional, both in terms of usability and navigation.</li>
+                <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Timeline of channels is cluttered on Live TV.</li>
+                <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Absence of language based filtration system after using the search bar to find some content.</li>
+                <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">No prominent change apart from Display Profile when Kid’s mode is toggled on.</li>
+            </ul></p>
+        </section>
+
+        <section class="text-section left-fade">
+            <h2>Final improvements</h2>
+        </section>
+        <!-- First Feature Section -->
+   <section class="text-section left-fade">
+    <div class="feature-section">
+      <div class="slider-container">
+          <img src="LANG2.png" alt="After" class="slider-img first" id="first-image1">
+          <img src="LANG1.png" alt="Before" class="slider-img second" id="slider-image1">
+          <div class="custom-slider-pin" id="slider-pin1"></div>
+          <div class="slider-track"></div>
+          <div class="text-box before" id="before-text1">After</div> <!-- Changed to After -->
+          <div class="text-box after" id="after-text1">Before</div> <!-- Changed to Before -->
+      </div>
+      <div class="slider-text">Functional Genre Tab</div>
+  </div>
+  </section>
+
+
+   <!-- Second Feature Section -->
+   <section class="text-section left-fade">
+   <div class="feature-section">
+    <div class="slider-container">
+        <img src="tvafter.png" alt="After" class="slider-img first" id="first-image2">
+        <img src="tvb4.png" alt="Before" class="slider-img second" id="slider-image2">
+        <div class="custom-slider-pin" id="slider-pin2"></div>
+        <div class="slider-track"></div>
+        <div class="text-box before" id="before-text2">After</div> <!-- Changed to After -->
+        <div class="text-box after" id="after-text2">Before</div> <!-- Changed to Before -->
+    </div>
+    <div class="slider-text">Decluttered Live TV</div>
+</div>
+   </section>
+
+   <!-- Third Feature Section -->
+   <section class="text-section left-fade">
+    <div class="feature-section">
+        <div class="slider-container">
+            <img src="langafter.png" alt="After" class="slider-img first" id="first-image3">
+            <img src="langb4.png" alt="Before" class="slider-img second" id="slider-image3">
+            <div class="custom-slider-pin" id="slider-pin3"></div>
+            <div class="slider-track"></div>
+            <div class="text-box before" id="before-text3">After</div> <!-- Changed to After -->
+            <div class="text-box after" id="after-text3">Before</div> <!-- Changed to Before -->
+        </div>
+        <div class="slider-text">Absence of language based filtration system after using the search bar to find some content.</div>
+    </div>
+    </section>
+
+
+     <!-- Fourth Feature Section -->
+   <section class="text-section left-fade">
+    <div class="feature-section">
+        <div class="slider-container">
+            <img src="kidafter.png" alt="After" class="slider-img first" id="first-image4">
+            <img src="kidb4.png" alt="Before" class="slider-img second" id="slider-image4">
+            <div class="custom-slider-pin" id="slider-pin4"></div>
+            <div class="slider-track"></div>
+            <div class="text-box before" id="before-text4">After</div> <!-- Changed to After -->
+            <div class="text-box after" id="after-text4">Before</div> <!-- Changed to Before -->
+        </div>
+        <div class="slider-text">No prominent change apart from Display Profile when Kid’s mode is toggled on.</div>
+    </div>
+    </section>
+  
+
+
+
+
+  <section class="text-section left-fade" style="padding-top: 80px;">
+    <div class="button-container" style="align-content: center; justify-content: center;">
+        <div class="button-container" style="align-content: center; justify-content: center;">
+            <a href="geometry.html" class="button1"> 1
+                <span class="tooltip">Prime Video: Usability testing</span>
+            </a>
+      <a href="Fuzzyfriends.html" class="button1" > 2
+          <span class="tooltip" >Fuzzy Friends: A Mobile Game</span>
+      </a>
+      <a href="Niyati.html" class="button1"> 3
+          <span class="tooltip">Niyati: Skincare re-defined</span>
+      </a>
+      
+      <a href="#" class="button1" style="background-color: #FEC8C0; box-shadow: 7px 7px 0px #E5887A;"> 4
+        <span class="tooltip" style="background-color: #E5887A; padding-top: 30px;"   >You are here!</span>
+    </a>
+          </div>
+              
+      </section>
+  
+  
+
+        
+
+        
+    </section>
+        <div class="footer">
+            <div class="footer a">
+            Still here? Let's&nbsp;&nbsp; <a href="contact.html">connect</a></div>
+            <div class="footer-icons">
+                <a href="https://www.behance.net/ae80d506"><img src="behanceorange.svg" alt="Behance"></a>
+                <a href="https://www.instagram.com/deepikaa_22/"><img src="insta.svg" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/deepikaa-varadharajan-41bb07220/"><img src="linkedin.svg" alt="Linkedin"></a>
+            </div>
+        </div>
+        
+        
+
+
+    <script>
+
+const cursor = document.getElementById('custom-cursor');
+    let mouseX = 0, mouseY = 0; // Store mouse position
+    let cursorX = 0, cursorY = 0; // Store custom cursor position
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+        const speed = 0.15; // Adjusted speed for very close tracking
+
+        cursorX += (mouseX - cursorX) * speed; // Smoothly track the original cursor
+        cursorY += (mouseY - cursorY) * speed;
+
+        cursor.style.left = `${cursorX}px`; // Update cursor position
+        cursor.style.top = `${cursorY}px`;
+
+        requestAnimationFrame(animateCursor); // Continuously update cursor position
+    }
+
+    animateCursor(); // Start the animation loop
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+        });
+
+        
+    </script>
+    <script>
+        // Intersection Observer to detect when sections come into view
+        document.addEventListener('DOMContentLoaded', () => {
+          const sections = document.querySelectorAll('.text-section');
+    
+          const observerOptions = {
+            root: null,
+            threshold: 0.1
+          };
+    
+          const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              } else {
+                entry.target.classList.remove('visible'); // Revert animation on scroll out
+              }
+            });
+          };
+    
+          const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+          sections.forEach(section => observer.observe(section));
+        });
+
+
+        function setupSlider(sliderPinId, sliderImageId, firstImageId, beforeTextId, afterTextId) {
+        const sliderPin = document.getElementById(sliderPinId);
+        const sliderImage = document.getElementById(sliderImageId);
+        const firstImage = document.getElementById(firstImageId);
+        const sliderContainer = sliderPin.parentElement;
+        const sliderTrack = sliderContainer.querySelector('.slider-track'); // Get the slider track
+        const beforeText = document.getElementById(beforeTextId);
+        const afterText = document.getElementById(afterTextId);
+        let isDragging = false;
+
+        sliderPin.addEventListener('mousedown', () => {
+            isDragging = true;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            const containerRect = sliderContainer.getBoundingClientRect();
+            let offsetX = e.clientX - containerRect.left;
+
+            if (offsetX < 0) offsetX = 0;
+            if (offsetX > containerRect.width) offsetX = containerRect.width;
+
+            const percentage = (offsetX / containerRect.width) * 100;
+            sliderPin.style.left = `${percentage}%`;
+            sliderImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+
+            // Move the slider track to match the slider pin
+            sliderTrack.style.left = `${percentage}%`; // Update the track position
+
+            // Blur logic based on percentage
+            if (percentage > 60) {
+                firstImage.classList.add('blurred');
+                sliderImage.classList.remove('blurred');
+                afterText.style.display = 'block'; // Show After text
+                beforeText.style.display = 'none'; // Hide Before text
+            } else if (percentage < 40) {
+                sliderImage.classList.add('blurred');
+                firstImage.classList.remove('blurred');
+                beforeText.style.display = 'block'; // Show Before text
+                afterText.style.display = 'none'; // Hide After text
+            } else {
+                firstImage.classList.remove('blurred');
+                sliderImage.classList.remove('blurred');
+                beforeText.style.display = 'none'; // Hide Before text
+                afterText.style.display = 'none'; // Hide After text
+            }
+        });
+    }
+    
+
+    // Initialize sliders with IDs for both images and text boxes
+    setupSlider('slider-pin1', 'slider-image1', 'first-image1', 'before-text1', 'after-text1');
+    setupSlider('slider-pin2', 'slider-image2', 'first-image2', 'before-text2', 'after-text2');
+    setupSlider('slider-pin3', 'slider-image3', 'first-image3', 'before-text3', 'after-text3');
+    setupSlider('slider-pin4', 'slider-image4', 'first-image4', 'before-text4', 'after-text4');
+      </script>
+    
+    
+    
+     
+</body>
+</html>
