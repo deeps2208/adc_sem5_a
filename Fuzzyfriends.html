@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <style>
+
+html, body {
+    overflow-x: hidden;
+}
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .afacad-light {
+                font-family: "Afacad", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                }
+                .afacad-bold {
+                font-family: "Afacad", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 700;
+                }
+        body {
+                    background-color: rgb(255, 251, 244);
+                    cursor: none;
+                    margin-top: 20px;
+                }
+        .calistoga-regular {
+                font-family: "Calistoga", serif;
+                font-weight: 400;
+                font-style: normal;
+                }
+
+                html {
+        scroll-behavior: smooth;
+    }
+        header {
+            background-color: rgb(255, 251, 244);
+            padding: 10px 20px;
+            position: fixed; /* Make the navbar stay on top */
+            top: 0;
+            width:100%;
+            z-index: 1000; 
+            
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px; /* Adjust logo size */
+            height: auto;
+            padding-top: 10px;
+            margin-left: 40px;
+        }
+
+        .nav-links {
+            
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            
+        }
+
+        .nav-links a {
+            color: #2D3B66;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: #E5887A;
+            font-weight: 700;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 4px;
+            background-color: #2D3B66;
+            border-radius: 5px;
+            margin: 3px;
+            transition: all 0.15s ease;
+            
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: -80px;
+                top: 70px;
+                height: 90vh;
+                width: 100%;
+                
+                background-color: rgb(255,252,244);
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .hamburger {
+                display: flex;
+                margin-right: 30px;
+            }
+
+            .nav-active {
+                transform: translateX(0);
+            }
+        }
+
+         /* Responsive Image Overlap Container */
+        .image-container {
+            width: 100%;
+            margin: 50px auto;
+            display: flex;
+        }
+
+        .image-overlap {
+            position: relative; /* Relative positioning to contain absolute images */
+            width: 100%;
+            height: auto;
+        }
+
+        .image-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width, will scale with container */
+            height: auto;
+            z-index: 2; /* This will be above the second image */
+        }
+
+        /* Second Image */
+        .image-2 {
+            position: absolute;
+            top: 20px; /* Adjust the amount of overlap */
+            width: 100%; /* Make the second image a bit smaller */
+            height: 650px;
+            z-index: 1; 
+            
+        }
+        .image-3 {
+            position: absolute;
+            top: 20px; /* Adjust the amount of overlap */
+            width: 100%; /* Make the second image a bit smaller */
+            height: 450px;
+            margin-top: 280px;
+            z-index: 3; 
+            
+        }
+
+        .image-4 {
+            position: absolute;
+            top: 20px; /* Adjust the amount of overlap */
+            width: 100%; /* Make the second image a bit smaller */
+            height: 650px;
+            margin-top: 360px;
+            z-index: 8; 
+            
+        }
+
+        .image-5 {
+            position: absolute;
+            top: 20px; /* Adjust the amount of overlap */
+            width: 100%; /* Make the second image a bit smaller */
+            
+            margin-top: 680px;
+            z-index: 6; 
+            
+        }
+        
+                @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+            /* Image styling */
+            .rotating-image {
+                position: absolute;
+                width: 70px; /* Adjust the size as needed */
+                height: auto;
+                margin-top: 210px;
+                z-index: 9;
+                animation: rotate 5s linear infinite; /* Continuous rotation */
+            }
+
+                 
+
+        .overlay-text {
+            position: absolute;
+            top: 50px;
+            z-index: 4;
+            color: white; /* Text color */
+            text-align: center; /* Center-align the text */
+            width: 100%; /* Adjust width */
+            font-size:  130px;
+
+        }
+
+        .overlay-text p {
+            font-size: 64px;
+            
+        }
+
+    
+        
+
+
+        .footer {
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Calistoga', serif;
+    font-size: 24px;
+    color: #2D3C73; /* Dark blue text */
+}
+
+.footer a {
+    text-decoration: none;
+    color: #2D3C73; /* Dark blue text */
+    font-size: 24px;
+    margin-right: 15px; /* Space between text and icons */
+    font-family: 'Calistoga', serif;
+}
+
+.footer-icons {
+    display: flex;
+    align-items: center;
+}
+
+.footer-icons a {
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.footer-icons img {
+    width: 34px; /* Adjust icon size */
+    height: 34px;
+}
+
+.spacer {
+    height: 590px; /* Adjust the height as needed */
+}
+
+.text-section {
+    max-width: calc(100% - 340px); /* Ensuring 170px margin on both sides */
+    margin: 100px auto;
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.left-fade {
+    transform: translateX(-20%) scale(0.8); /* Move elements slightly off the screen and zoom out */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.text-section.visible {
+    transform: translateX(0) scale(1); /* Bring elements back to their normal position and zoom in */
+    opacity: 1;
+}
+
+
+
+.text-section h2 {
+    font-family: 'Calistoga';
+    color: #2D3B66;
+    margin-bottom: 10px;
+    font-size: 40px; /* Larger heading size */
+}
+
+.text-section p {
+    font-family: 'Afacad';
+    color: #2D3B66;
+    font-size: 24px; /* Larger paragraph size */
+    line-height: 1.6;
+}
+
+.text-section.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.text-row {
+  display: flex;
+  justify-content: space-between; /* Ensures equal spacing between the texts */
+  align-items: center; /* Vertically center the texts */
+  width: 100%; /* Adjust the width as needed */
+}
+
+.text-row span {
+  font-size: 24px; /* Adjust the size as you prefer */
+  margin: 0 10px; /* Optional: Add some margin if needed */
+}
+
+
+.button-container {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+
+        .button1 {
+            background-color: #A0AFC5; /* Button background */
+            color: #FFFAF4; /* Button text color */
+            padding-top: 15px;
+            font-size: 24px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 7px 7px 0px #2D3B66; /* Shadow effect */
+            cursor: pointer;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Afacad', sans-serif;
+            width: 60px; /* Fixed width */
+            height: 60px;
+            position: relative; /* Position relative for tooltip */
+            transition: ease-in-out;
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .button1:hover {
+            transform: translateY(-6px); /* Hover effect */
+            transition: transform 0.1s ease-in-out;
+            font-weight: 700;
+            background-color: #A0AFC5;
+            color: #FFFAF4;
+            box-shadow: 7px 7px 0px #2D3B66; /* Shadow effect */
+        }
+
+        .tooltip {
+            font-weight: 400;
+            visibility: hidden; /* Initially hidden */
+            position: absolute;
+            width: 170px;
+            height: 90px;
+            bottom: 70px; /* Position above the button */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2D3B66;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            font-size: 22px;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.2s linear; /* Transition for fade-in */
+        }
+
+        .button1:hover .tooltip {
+            visibility: visible; /* Show tooltip on hover */
+            opacity: 1; /* Fade in effect */
+        }
+
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller desktops */
+@media (max-width: 1024px) {
+    .text-section {
+        max-width: calc(100% - 100px); /* Reduce margins on smaller screens */
+        margin: 80px auto;
+    }
+
+    .text-section h2 {
+        font-size: 32px; /* Adjust heading size */
+    }
+
+    .text-section p {
+        font-size: 20px; /* Adjust paragraph size */
+    }
+
+    .footer {
+        flex-direction: column;
+        font-size: 22px; /* Slightly smaller footer text */
+    }
+
+    .footer-icons img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .text-section {
+        max-width: calc(100% - 50px); /* Further reduce margins */
+        margin: 50px auto;
+    }
+
+    .text-section h2 {
+        font-size: 28px; /* Smaller heading for mobile */
+    }
+
+    .text-section p {
+        font-size: 18px; /* Smaller paragraph size */
+    }
+
+    .footer {
+        flex-direction: column;
+        font-size: 20px; /* Even smaller footer text */
+        padding: 15px 0;
+    }
+
+    .footer a {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    .footer-icons img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+    .text-section {
+        max-width: 100%; /* Remove margins on very small screens */
+        margin: 20px auto;
+    }
+
+    .text-section h2 {
+        font-size: 24px; /* Even smaller heading */
+    }
+
+    .text-section p {
+        font-size: 16px; /* Even smaller paragraph size */
+    }
+
+    .footer {
+        font-size: 18px;
+        padding: 10px 0;
+    }
+
+    .footer a {
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    .footer-icons img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+ /* My custom scroll and cursor */
+ .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: #F84C35; /* Circle color */
+            opacity: 80%;
+            border-radius: 50%; /* Make it circular */
+            pointer-events: none; /* Prevent interference with page elements */
+            z-index: 9999;
+            transition: transform 0.1s ease-out; /* Smooth transition */
+            transform: translate(-50%, -50%); /* Center it over the actual cursor */
+        }
+    /* Apply custom styles to the entire webpage scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light gray background */
+    border-radius: 6px; /* Rounded corners for the track */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background: #4b5980; /* Darker gray handle */
+    border-radius: 6px; /* Rounded corners for the handle */
+}
+
+/* Handle hover effect */
+::-webkit-scrollbar-thumb:hover {
+    background: #2D3B66; /* Even darker gray on hover */
+}
+
+
+
+    
+    </style>
+</head>
+<body>  
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <header class="afacad-light" style="color:#2D3B66; font-size: 24px;"> 
+        <nav class="navbar">
+            <a href="index.html">
+            <div class="logo" >
+                <img src="logo.png" width="40px" style="margin-left: 70px;">
+            </div>
+        </a>
+            <ul class="nav-links" style="margin-right: 80px;">
+                <li><a href="#section1">Projects</a></li>
+                <li><a href="about_me_final.html">About me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <section class="image-container">
+        <div class="image-overlap">
+        <img src="Vector93pink.png" alt="Image 1" class="image-1" style="min-height: 300px; max-height: 400px;">
+        <img src="Rectangle33pink.png" alt="Image 2" class="image-2" style="min-height: 600px;">
+        <img src="Vector95.png" alt="Image 3" class="image-3" style="max-height: 400px;">
+        <div class="overlay-text" >
+            <div class="calistoga-regular" style="color: #2D3B66; letter-spacing: 5px; -webkit-text-stroke: 43px; -webkit-text-stroke-color: rgb(255, 251, 244); paint-order: stroke fill; margin-left: 10px;">
+               Fuzzy Friends:<br>A Mobile Game</div>
+        </div>
+        </div>
+        <img src="fuzzzzy.png" alt="Image 4" class="image-4" style="max-height:380px; width: auto; margin-left: 500px; ">
+        
+        <img src="Vector97pink.svg" alt="Image 5" class="image-5" style="min-height:100px; max-height: 400px;">
+        
+        
+
+    </section>
+</div>
+<div class="spacer"></div>
+<section class="text-section left-fade">
+    <h2>Project overview</h2>
+    <p>We had to take any existing hyper casual mobile game and design a similar one, whilst adding new challenges and miscellaneous features to the game.
+        Our reference game is called<b>QSWaterMelon (iOS)/ QS Monkey Land: King of Fruits (Android)</b>
+        .
+       <br> The game we developed is <b> Fuzzy Friends</b>.  It’s all cats.  </p>
+       <p class="text-row" style="margin-top: 30px; font-weight: 700;">
+        <span>Game Design</span>
+        <span>Communication Design</span>
+        <span>Wireframing</span>
+       </p>  
+       <p class="text-row" style="margin-top: 30px;margin-left:230px; font-weight: 700; width: 60%; ">
+        <span>Duration: 2 months</span>
+        <span>Team type: Duo</span>
+        
+       </p>  
+  </section>
+
+  <section class="text-section left-fade">
+    <h2>Game lore</h2>
+    <p>We all know how much cats love boxes. Well, that’s what the whole game is based on! Fit as many as cats in the carboard box (the main gameplay) before the owner finds them! Remember to keep them happy by giving them new looks every now and then!</p>
+  </section>
+
+  <section class="text-section left-fade">
+    <h2>Game mechanics</h2>
+  <p><b>1. Core loop</b></p>
+  <img src="Cat1.png" style="width: 980px; margin-left: 150px;">
+  </section>
+
+  <section class="text-section left-fade">
+  <p><b>2. Hints</b></p>
+  <p>If the user runs out of hints, they use the game currency (treats) to buy one hint for 50.</p>
+  <img src="hints.png" style="width: 680px; margin-top: 90px; margin-left: 270px;">
+  </section>
+
+  <section class="text-section left-fade">
+    <p><b>3. Ads integration</b></p>
+    <p><b>Ads can be watched to attain the following:</b></p>
+    <p><ul>
+        <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Double the treats after the game.</li>
+        <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Unlock missed accessories/stamps.</li>
+        <img src="ads.png" style="width: 680px; margin-top: 90px; margin-left: 270px;">
+    </ul></p>
+    </section>
+
+    <section class="text-section left-fade">
+        <p><b>4. Meta loop event</b></p>
+        <p><b>Daily Puzzle</b></p>
+        <p><ul>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Collect sets of 3 of the same cats.</li>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">The player must return the cats to their home before the timer runs out to complete the daily task.</li>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">Upon completion, the player either receives a stamp or an accessory, and in the case of the latter it can be customized on any cat.</li>
+            </ul>
+
+        <p style="margin-top: 30px;"><b>Leaderboard</b></p>
+        <p><ul>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">The sum of the points the player gets in each game in a fortnight is used to determine the position on the leaderboard.</li>
+            <li style="font-family: 'Afacad'; font-size: 24px; color: #2D3B66;margin-left: 20px;margin-right: 20px;">At the end of each season, the player receives treats based on which position they finish.</li> 
+            </ul>
+        </section>
+
+        <section class="text-section left-fade">
+            <h2>Game characters and accessories</h2>
+          
+          <img src="catsss.png" style="width: 1180px; padding-top: 30px; padding-bottom: 30px;">
+          <p>These are the cats of our game, they are the ranks as well. Accessories obtained from daily puzzles can be customized on the cats.
+        </p>
+          </section>
+
+          <section class="text-section left-fade">
+            <h2>Seasonal Game background</h2>
+            <p>There are two kinds of backgrounds, summer and winter which the user can unlock for 2000 treats each.
+            </p>
+          <img src="phones.png" style="width: 780px; padding-top: 30px; padding-bottom: 30px; align-content: center; margin-left: 200px;">
+          
+          </section>
+          
+          <section class="text-section left-fade">
+          <div class="button-container" style="align-content: center; justify-content: center;">
+            <a href="geometry.html" class="button1"> 1
+                <span class="tooltip">Geometry for the blind</span>
+            </a>
+            <a href="#" class="button1" style="background-color: #FEC8C0; box-shadow: 7px 7px 0px #E5887A;"> 2
+                <span class="tooltip" style="background-color: #E5887A; padding-top: 30px;">You are here!</span>
+            </a>
+            <a href="Niyati.html" class="button1"> 3
+                <span class="tooltip">Niyati: Skincare re-defined</span>
+            </a>
+            <a href="usability.html" class="button1"> 4
+                <span class="tooltip">Prime Video: Usability testing</span>
+            </a>
+                </div>
+                    
+            </section>
+                    
+        </div>
+
+      
+  
+  
+ 
+
+        
+
+        
+    </section>
+        <div class="footer">
+            <div class="footer a">
+            Still here? Let's&nbsp;&nbsp; <a href="contact.html">connect</a></div>
+            <div class="footer-icons">
+                <a href="https://www.behance.net/ae80d506"><img src="behanceorange.svg" alt="Behance"></a>
+                <a href="https://www.instagram.com/deepikaa_22/"><img src="insta.svg" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/deepikaa-varadharajan-41bb07220/"><img src="linkedin.svg" alt="Linkedin"></a>
+            </div>
+        </div>
+        
+        
+
+
+    <script>
+
+const cursor = document.getElementById('custom-cursor');
+    let mouseX = 0, mouseY = 0; // Store mouse position
+    let cursorX = 0, cursorY = 0; // Store custom cursor position
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+        const speed = 0.15; // Adjusted speed for very close tracking
+
+        cursorX += (mouseX - cursorX) * speed; // Smoothly track the original cursor
+        cursorY += (mouseY - cursorY) * speed;
+
+        cursor.style.left = `${cursorX}px`; // Update cursor position
+        cursor.style.top = `${cursorY}px`;
+
+        requestAnimationFrame(animateCursor); // Continuously update cursor position
+    }
+
+    animateCursor(); // Start the animation loop
+        
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+        });
+
+        
+    </script>
+    
+    
+    <script>
+        // Intersection Observer to detect when sections come into view
+        document.addEventListener('DOMContentLoaded', () => {
+          const sections = document.querySelectorAll('.text-section');
+    
+          const observerOptions = {
+            root: null,
+            threshold: 0.1
+          };
+    
+          const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              } else {
+                entry.target.classList.remove('visible'); // Revert animation on scroll out
+              }
+            });
+          };
+    
+          const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+          sections.forEach(section => observer.observe(section));
+        });
+      </script>
+    
+    
+    
+     
+</body>
+</html>
